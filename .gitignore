@@ -1,6 +1,9 @@
 # xlsx file
 #*.xlsx
 
+# txt file
+*.txt
+
 # exe file
 *.exe
 
