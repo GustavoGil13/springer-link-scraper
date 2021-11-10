@@ -2,15 +2,6 @@
 
 This script scrapes [springer link](https://link.springer.com/) for articles.
 
-## Inputs
-
-```python
-# The page to start the search
-number_of_pages_start = 1
-# what to search
-what_to_search = "web scraping"
-```
-
 ## How to run the script
 1. Create a virtual environment:
 ```sh
