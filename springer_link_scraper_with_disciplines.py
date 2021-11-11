@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import requests
 from selenium import webdriver
 import numpy as np
 import pandas as pd
@@ -11,7 +10,7 @@ import os
 # what to search
 what_to_search = "sports betting"
 # name of the file that stores de data
-file_name = "spring_link_information.xlsx"
+file_name = what_to_search.replace(" ", "_") + "_articles.xlsx"
 
 ###
 
@@ -20,8 +19,8 @@ path = os.getcwd().replace("\\", "/") + "/"
 global_url = "https://link.springer.com"
 
 ## sleep from x and y seconds
-x = 2
-y = 4
+x = 3
+y = 5
 ##
 
 information = {"article_type":[], 
