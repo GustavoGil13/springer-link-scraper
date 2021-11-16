@@ -1,6 +1,10 @@
 # springer-link-scraper
 
-This script scrapes [springer link](https://link.springer.com/) for articles.
+The scripts scrapes articles from [springer link](https://link.springer.com/).
+
+## Script versions
+
+There are two scrapers: one that scrapes the articles by page and another that scrapes based on the discipline of the article
 
 ## How to run the script
 1. Create a virtual environment:
