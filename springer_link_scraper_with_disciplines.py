@@ -8,7 +8,7 @@ import os
 ### INPUTS
 
 # what to search
-what_to_search = "sports betting"
+what_to_search = "thermodynamics" #"sports betting"
 # name of the file that stores de data
 file_name = what_to_search.replace(" ", "_") + "_articles.xlsx"
 
@@ -62,7 +62,7 @@ for discipline_index, discipline_link in enumerate(all_disciplines_links):
     soup = BeautifulSoup(browser.page_source,'lxml')
 
     try:
-        total_number_of_pages = int(soup.find("span", class_="number-of-pages").text)
+        total_number_of_pages = int(soup.find("span", class_="number-of-pages").text.replace(",",""))
     except Exception as e:
         total_number_of_pages = 1
 
@@ -212,6 +212,9 @@ for discipline_index, discipline_link in enumerate(all_disciplines_links):
         print(f"Page number {n_page + 1} done")
         df = pd.DataFrame(information)
         df.to_excel(path + file_name)
+        
+        if df[df['abstract'].notna()].shape[0] >= 627:
+            break
 
 try:
     browser.close()
