@@ -213,8 +213,6 @@ for discipline_index, discipline_link in enumerate(all_disciplines_links):
         df = pd.DataFrame(information)
         df.to_excel(path + file_name)
         
-        if df[df['abstract'].notna()].shape[0] >= 627:
-            break
 
 try:
     browser.close()
