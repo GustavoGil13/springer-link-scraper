@@ -8,7 +8,7 @@ import os
 ### INPUTS
 
 # what to search
-what_to_search = "thermodynamics" #"sports betting"
+what_to_search = "sports betting"
 # name of the file that stores de data
 file_name = what_to_search.replace(" ", "_") + "_articles.xlsx"
 
