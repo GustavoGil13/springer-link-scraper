@@ -9,12 +9,11 @@ import os
 
 # what to search
 what_to_search = "sports betting"
-# name of the file that stores de data
+# name of the file that stores the data
 file_name = what_to_search.replace(" ", "_") + "_articles.xlsx"
-
-###
-
+# where to store the excel
 path = os.getcwd().replace("\\", "/") + "/"
+###
 
 global_url = "https://link.springer.com"
 
