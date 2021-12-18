@@ -3,17 +3,17 @@ from selenium import webdriver
 import numpy as np
 import pandas as pd
 import time
-import os
 
 ### INPUTS
 
 # what to search
-what_to_search = "sports betting"
+what_to_search = ""
 # name of the file that stores the data
 file_name = what_to_search.replace(" ", "_") + "_articles.xlsx"
-# where to store the excel
-path = os.getcwd().replace("\\", "/") + "/"
-###
+
+if what_to_search == "":
+    print("Did not input the search topic")
+    quit()
 
 global_url = "https://link.springer.com"
 
@@ -149,7 +149,10 @@ for discipline_index, discipline_link in enumerate(all_disciplines_links):
                 information["title"].append(title_link.text if title_link != np.nan else title_link)
                 information["link"].append(full_link)
                 information["abstract"].append(abstract)
-                information["author"].append(author[:-1] if author != np.nan else author)
+                try:
+                    information["author"].append(author[:-1] if author != np.nan else author)
+                except Exception as e:
+                    information["author"].append(np.nan)
                 information["date"].append(date)
                 information["year"].append(int(date[:4]) if date != np.nan else date)
                 information["n_citations"].append(n_citations)
@@ -198,7 +201,10 @@ for discipline_index, discipline_link in enumerate(all_disciplines_links):
                 information["title"].append(title_link.text if title_link != np.nan else title_link)
                 information["link"].append(full_link)
                 information["abstract"].append(abstract)
-                information["author"].append(author[:-1] if author != np.nan else author)
+                try:
+                    information["author"].append(author[:-1] if author != np.nan else author)
+                except Exception as e:
+                    information["author"].append(np.nan)
                 information["date"].append(date)
                 information["year"].append(int(date[:4]) if date != np.nan else date)
                 information["n_citations"].append(n_citations)
@@ -210,9 +216,8 @@ for discipline_index, discipline_link in enumerate(all_disciplines_links):
 
         print(f"Page number {n_page + 1} done")
         df = pd.DataFrame(information)
-        df.to_excel(path + file_name)
+        df.to_excel(file_name)
         
-
 try:
     browser.close()
 except Exception as e:
